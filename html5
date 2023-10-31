@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="c.css">
+  <title>Flashing Text</title>
+  <style>
+    #flashing-text {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <span id="flashing-text"><h1>Welcome to my site</h1></span>
+      <script>
+        function blink(id, color, time) {
+          const element = document.getElementById(id);
+          if (element) {
+            element.style.color = color;
+            setTimeout(() => {
+              switch (color) {
+                case "red":
+                  blink(id, "green", time);
+                  break;
+                case "green":
+                  blink(id, "blue", time);
+                  break;
+                case "blue":
+                  blink(id, "red", time);
+                  break;
+                default:
+                  break;
+              }
+            }, time);
+          }
+        }
+        blink("flashing-text", "red", 1000);
+      </script>
+    </div>
+    <div class="#">
+      <h2>My home</h2>
+      <div class="content">
+        <!-- main content is here -->
+      </div>
+      <div class="menu">
+        <ul>
+          <li>Contact</li>
+          <li>My job</li>
+          <li>My hobby</li>
+          <li>After hours</li>
+        </ul>
+      </div>
+      <div class="image">
+        <img src="images.jpg.jpg" onclick="enlargePhoto('images.jpg.jpg')" class="zoom-button" alt="Zoom">
+      </div>
+      <script>
+        function enlargePhoto() {
+          window.location = 'enlarge_photo.html';
+        }
+      </script>
+      <div class="footer">
+        <p>&copy; Abdullakim</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
